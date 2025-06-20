@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>My Portfolio</title>
+<style>
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+  }
+  body {
+    background: #e6eef2; 
+    color: #333;
+  }
+
+  
+  nav {
+    position: sticky;
+    top: 0;
+    background: #004d66;
+    padding: 20px 12px; 
+    display: flex;
+    justify-content: space-around;
+    z-index: 1000;
+  }
+  nav a {
+    color: #f0f4f8;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background 0.3s;
+  }
+  nav a:hover {
+    background: #006f8e;
+  }
+
+  section {
+    padding: 40px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  
+  #about {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #d1e7dd;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #about h2 {
+    color: #0f5132;
+    margin-bottom: 20px;
+  }
+  #about img {
+    width: 270px;
+    height: 270px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  #about img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+  #about p {
+    max-width: 780px;
+    text-align: left;
+    line-height: 1.6;
+    color: #19511a;
+  }
+
+  
+  #skills h2 {
+    color: #005f73;
+    margin-bottom: 20px;
+  }
+  .bar {
+    height: 20px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+  }
+  .bar span {
+    display: block;
+    height: 100%;
+    border-radius: 10px;
+  }
+  .html span   { background: #f58c1f; width: 90%; }
+  .css span    { background: #2965f1; width: 85%; }
+  .js span     { background: #e44d26; width: 70%; }
+  .java span   { background: #007396; width: 80%; }
+  .sql span    { background: #f29111; width: 75%; }
+
+
+  #internships h2 {
+    text-align: center;
+    color: #6a1b9a;
+    margin-bottom: 20px;
+  }
+  #internships {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+  }
+  .intern-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  .intern {
+    background: #fafafa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    flex: 1 1 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .intern:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  .intern strong {
+    display: block;
+    margin-bottom: 10px;
+    color: #6a1b9a;
+  }
+  .intern p {
+    color: #333;
+  }
+
+  #projects {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+  }
+  #projects h2 {
+    text-align: center;
+    color: #4a4e69;
+    margin-bottom: 20px;
+  }
+  .project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  .project-card {
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .project-card:nth-child(odd) {
+    background: #e3f2fd;
+  }
+  .project-card:nth-child(even) {
+    background: #fffde7;
+  }
+  .project-card strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #1a237e;
+  }
+  .project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  }
+
+ 
+  #achievements {
+    max-width: 800px;
+    margin: 30px auto;
+    background: #ffe5d9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  #achievements h2 {
+    color: #d90429;
+    margin-bottom: 15px;
+  }
+  #achievements ul {
+    list-style: disc inside;
+    color: #333;
+    display: inline-block;
+    text-align: left;
+  }
+
+  #certificates {
+    max-width: 800px;
+    margin: 30px auto;
+    background: #e0fbfc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  #certificates h2 {
+    color: #05668d;
+    margin-bottom: 15px;
+  }
+  #certificates a {
+    display: inline-block;
+    margin: 10px 15px;
+    color: #028090;
+    text-decoration: underline;
+  }
+
+ 
+  #links {
+    max-width: 800px;
+    margin: 30px auto;
+    background: #fff9c4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  #links h2 {
+    color: #f9a825;
+    margin-bottom: 15px;
+  }
+  #links a {
+    display: inline-block;
+    margin: 0 15px;
+    color: #f57f17;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  #links a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <a href="#about">About Me</a>
+    <a href="#skills">Technical Skills</a>
+    <a href="#internships">Internships</a>
+    <a href="#projects">Projects</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#links">Links</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <img src="c:/Users/home/Desktop/photo.jpg" alt="My Photo" onclick="alert('Hello from Pushpavathi!')">
+    <p>Hello! “I’m Kanike Puspavathi, a dedicated entry-level Full Stack Developer with a solid foundation in HTML, CSS, JavaScript, and Java, complemented by hands-on experience in building full-stack web applications. Through internships and personal projects, I’ve designed responsive UIs, implemented RESTful APIs, and worked with SQL databases. I’m eager to apply my technical knowledge and strong problem‑solving skills within a collaborative, agile environment, continuously learning new technologies and contributing impactful solutions.”.</p>
+  </section>
+
+ 
+  <section id="skills" class="skills">
+    <h2>Technical Skills</h2>
+    <div>HTML<div class="bar html"><span></span></div></div>
+    <div>CSS<div class="bar css"><span></span></div></div>
+    <div>JavaScript<div class="bar js"><span></span></div></div>
+    <div>Java<div class="bar java"><span></span></div></div>
+    <div>SQL<div class="bar sql"><span></span></div></div>
+  </section>
+
+  
+  <section id="internships">
+    <h2>Internships</h2>
+    <div class="intern-container">
+      <div class="intern">
+        <strong>Dhee Coding Lab (Java Full Stack)</strong>
+        <p>Under this internship I learnt many programming languages, scripting languages and as well as Frontend and Backend Technologies.</p>
+      </div>
+      <div class="intern">
+        <strong>WSA Academy (Web Development)</strong>
+        <p>Under this I learnt both Frontend and Backend Technologies.</p>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-list">
+      <div class="project-card">
+        <strong>Food Ordering Website</strong>
+        <p>This project is a responsive and user-friendly web-based food ordering system that allows customers to browse a variety of food items, add them to a cart, and place orders online. It simulates the functionality of a real food delivery platform with dynamic menu management and order tracking features.</p>
+      </div>
+      <div class="project-card">
+        <strong>Crop Disease Detection</strong>
+        <p>This project aims to assist farmers by automatically detecting diseases in crops using image classification with Convolutional Neural Networks (CNN). By analyzing leaf images, the model can identify various plant diseases and suggest appropriate remedies, enabling early intervention and improved crop yield.</p>
+      </div>
+      <div class="project-card">
+        <strong>Library Management System</strong>
+        <p>The Library Management System is a console-based application developed using Core Java, applying OOPs principles and Java Collections like ArrayList and HashMap to manage books, members, and transactions effectively.</p>
+      </div>
+      <div class="project-card">
+        <strong>Calculator</strong>
+        <p>Developed a simple and responsive calculator using HTML for structure, CSS for styling, and JavaScript for functionality. The application supports basic arithmetic operations like addition, subtraction, multiplication, and division with real-time input and display updates. It features a clean UI and handles user input dynamically without any page reloads.</p>
+      </div>
+      <div class="project-card">
+        <strong>Digital Clock</strong>
+        <p>Created a dynamic digital clock using HTML, CSS, and JavaScript. The clock displays the current time in real-time and updates every second without refreshing the page. The project showcases DOM manipulation and time-based functionality using JavaScript, with a clean and responsive UI styled using CSS.</p>
+      </div>
+      <div class="project-card">
+        <strong>Attendance Cracker</strong>
+        <p>"Attendance Cracker" is a web-based application designed to streamline the process of recording and managing attendance. It offers an intuitive interface for educators or administrators to add classes, enroll students, and mark attendance efficiently.</p>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="achievements">
+    <h2>Achievements</h2>
+    <ul>
+      <li>Solved Problems in platforms like <strong>LeetCode, HackerRank, GeeksforGeeks</strong></li>
+      <li>Class <strong>Committee</strong> member</li>
+      <li>Earned Badge from WSA Academy</li>
+    </ul>
+  </section>
+
+  
+  <section id="certificates">
+    <h2>Certificates</h2>
+    <a href="c:/Users/home/Desktop/internshala web development ceertificate.pdf" target="_blank">Java Full Stack Certification</a>
+    <a href="c:/Users/home/Desktop/98381MTA Introduction to Programming using Python.pdf" target="_blank">Microsoft Certification on Python</a>
+    <a href="c:/Users/home/Desktop/Data Science for Engineers .pdf" target="_blank">Certified on Data Science from NPTEL</a>
+  </section>
+
+  
+  <section id="links">
+    <h2>Links</h2>
+    <a href="https://www.linkedin.com/in/kanike-puspavathi-550219280" target="_blank">LinkedIn</a>
+    <a href="https://github.com/Pushpa1809" target="_blank">GitHub</a>
+    <a href="mailto:kanikepuspavathi@gmail.com">Email</a>
+    <a href="c:\Users\home\Downloads\puspavathikanikeresume.pdf">Resume</a>
+  </section>
+
+</body>
+</html>
